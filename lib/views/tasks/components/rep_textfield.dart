@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_todo/utils/app_colors.dart';
 
 import '../../../utils/app_strings.dart';
 
@@ -23,9 +24,10 @@ class RepTextField extends StatelessWidget {
         title: TextFormField(
           controller: controller,
           maxLines: !isForDescription ? 6 : null,
-          cursorHeight: !isForDescription ? 60 : null,
+          cursorHeight: !isForDescription ? 40 : null,
           style: const TextStyle(color: Colors.black),
           decoration: InputDecoration(
+            //fillColor: Colors.red,
             border: isForDescription ? InputBorder.none : null,
             counter: Container(),
             hintText: isForDescription ? AppStrings.addNote : null,
@@ -33,11 +35,13 @@ class RepTextField extends StatelessWidget {
                 isForDescription
                     ? const Icon(Icons.bookmark_border, color: Colors.grey)
                     : null,
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade300),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primaryColor),
+              borderRadius: BorderRadius.circular(20),
             ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey.shade300),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primaryColor),
+              borderRadius: BorderRadius.circular(20),
             ),
           ),
           onFieldSubmitted: onFieldSubmitted,
